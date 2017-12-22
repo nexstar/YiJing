@@ -1,0 +1,30 @@
+# /bin/basdh
+# author NianBao 2017/04/26
+echo "本腳本為製作Android-key and Bulid Apk";
+echo "首先先建立Android金鑰";
+echo "keytool -genkey -alias { KeyName } -keyalg RSA -keysize 2048 -validity 10000";
+echo "{ KeyName } 為Android金鑰的名稱";
+echo "______________________________________________________________________";
+echo "第一步輸入金鑰";
+echo "第二步輸入您的名字與姓氏為何？";
+echo "第三步輸入您的組織單位名稱為何？";
+echo "第四步輸入您的組織名稱為何？";
+echo "第五步輸入您所在的城市或地區名稱為何？";
+echo "第六步輸入您所在的州及省份名稱為何？";
+echo "第七步輸入此單位的兩個字母國別代碼為何？";
+echo "第八步輸入以上輸入都正確嗎？ 請按下 'Ｙ' !!!";
+echo "輸入第一步的相同金鑰(最少八位)";
+echo "以上就是建立Android金鑰方式(金鑰可重覆使用！！)";
+echo "______________________________________________________________________";
+echo "接下來針對專案做Build Apk";
+echo "meteor build ~/build-output-directory --server={ IP:Port }";
+echo "{ ~/build-output-directory } 是針對妳Build出來的Apk路徑到去哪? (建議放置桌面方面尋找)"; 
+echo "{ IP } 為Bulid的位置放在哪! 『 Https://xxxxxx and Http://xxxxxx 』";
+echo "兩者都可以Build兩種作者都使用過,很成功＾＾";
+echo "______________________________________________________________________";
+echo "完成以上就可以把金鑰與Build的APk做一個相容的動作";
+echo "cd ~/build-output-directory/android/";
+echo "先切到剛剛匯出的路徑中找到android Folder 進入後輸入下方";
+echo "jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 release-unsigned.apk { KeyName }";
+echo "輸入上面指令後要輸入金鑰密碼";
+echo "完成後針對 { release-unsigned.apk } 更動方便記憶的名稱就完成 Meteor Build Apk Setup";
